@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_union_hardship_request_steward,union.hardship_request steward,model_union_hardship_request,union_base.group_union_steward,1,1,1,1

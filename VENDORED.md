@@ -1,7 +1,7 @@
 # Vendored OCA modules
 
 One module in this repo comes from the **Odoo Community Association**, not
-from us: `membership/`. It's vendored because `nuhw_base` depends on its
+from us: `membership/`. It's vendored because `union_base` depends on its
 "Members" menu/action (a real, distinct action from core Customers - see
 `membership/views/res_partner_views.xml`'s `action_membership_members`) and
 Odoo 19 dropped the core Membership app entirely. Same copy already vendored
@@ -29,10 +29,10 @@ Nothing else was touched.
 
 ### A real-world fit note
 
-This CBA's union dues are deducted via payroll check-off (Article 8), not
+Union dues are usually deducted by payroll check-off, not
 invoiced through Odoo - `membership`'s own fee/invoice-driven renewal
 workflow (`membership.membership_line`, membership products) doesn't map to
-that. `nuhw_base` uses this module only for its "Members" menu and
+that. `union_base` uses this module only for its "Members" menu and
 `membership_state` field; nothing here assumes dues are ever actually
-invoiced through this database. See `nuhw_base`'s own README for how
+invoiced through this database. See `union_base`'s own README for how
 `membership_state` gets set manually instead.

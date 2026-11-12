@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_union_unit_user,union.unit internal user,model_union_unit,base.group_user,1,0,0,0
+access_union_unit_steward,union.unit steward,model_union_unit,group_union_steward,1,1,1,1
+access_union_contract_user,union.contract internal user,model_union_contract,base.group_user,1,0,0,0
+access_union_contract_steward,union.contract steward,model_union_contract,group_union_steward,1,1,1,1

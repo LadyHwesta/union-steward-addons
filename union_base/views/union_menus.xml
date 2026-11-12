@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <menuitem id="menu_union_root"
+              name="Union"
+              sequence="15"
+              groups="base.group_user" />
+
+    <menuitem id="menu_union_members"
+              name="Members"
+              parent="menu_union_root"
+              action="membership.action_membership_members"
+              sequence="1" />
+
+    <menuitem id="menu_union_stewards"
+              name="Stewards"
+              parent="menu_union_root"
+              action="steward_roster_action"
+              sequence="2"
+              groups="group_union_steward" />
+
+    <menuitem id="menu_union_configuration"
+              name="Configuration"
+              parent="menu_union_root"
+              sequence="90"
+              groups="group_union_steward" />
+
+    <menuitem id="menu_union_contracts"
+              name="Contracts"
+              parent="menu_union_configuration"
+              action="union_contract_action"
+              sequence="0" />
+
+    <menuitem id="menu_union_units"
+              name="Bargaining Units"
+              parent="menu_union_configuration"
+              action="union_unit_action"
+              sequence="1" />
+</odoo>

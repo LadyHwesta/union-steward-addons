@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_union_grievance_steward,union.grievance steward,model_union_grievance,union_base.group_union_steward,1,1,1,1
+access_union_grievance_track_user,union.grievance.track user,model_union_grievance_track,base.group_user,1,0,0,0
+access_union_grievance_track_steward,union.grievance.track steward,model_union_grievance_track,union_base.group_union_steward,1,1,1,1
+access_union_grievance_step_user,union.grievance.step user,model_union_grievance_step,base.group_user,1,0,0,0
+access_union_grievance_step_steward,union.grievance.step steward,model_union_grievance_step,union_base.group_union_steward,1,1,1,1

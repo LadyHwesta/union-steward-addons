@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <menuitem id="menu_union_weingarten_meetings"
+              name="Weingarten Meetings"
+              parent="union_base.menu_union_root"
+              action="union_weingarten_meeting_action"
+              sequence="3"
+              groups="union_base.group_union_steward" />
+</odoo>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <menuitem id="menu_union_direct_actions"
+              name="Direct Actions"
+              parent="union_base.menu_union_root"
+              action="union_direct_action_action"
+              sequence="5"
+              groups="union_base.group_union_steward" />
+</odoo>

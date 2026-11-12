@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+
+    <record id="employer_srmh" model="res.partner">
+        <field name="name">Santa Rosa Memorial Hospital</field>
+        <field name="is_company" eval="True" />
+        <field name="city">Santa Rosa</field>
+        <field name="state_id" ref="base.state_us_5" />
+        <field name="country_id" ref="base.us" />
+    </record>
+
+    <record id="contract_srmh" model="union.contract">
+        <field name="name">NUHW - Santa Rosa Memorial Hospital</field>
+        <field name="employer_id" ref="employer_srmh" />
+        <!-- Article 7.3: a steward must "request release at least forty-eight
+             (48) hours in advance"; 28.4 gives the Hospital the same window. -->
+        <field name="release_notice_hours">48</field>
+        <field name="shift_notes">Article 12.5 - Shift Differential (Service and Technical Unit):
+Day: 0700-1530 (10/12hr) or 0700-1730 (8hr) - no differential.
+Evening: 1500-2330 - 9% of base hourly rate.
+Night: 2300-0730 - 25% of base hourly rate.
+The Professionals Unit has its own flat differential amounts - see the contract.</field>
+    </record>
+
+    <!-- Article 2 - Recognition: the two bargaining units. -->
+    <record id="unit_service_technical" model="union.unit">
+        <field name="name">Service and Technical Unit</field>
+        <field name="code">S&amp;T</field>
+        <field name="contract_id" ref="contract_srmh" />
+        <field name="description">Classifications are listed in Appendix I.</field>
+    </record>
+    <record id="unit_professionals" model="union.unit">
+        <field name="name">Professionals Unit</field>
+        <field name="code">PROF</field>
+        <field name="contract_id" ref="contract_srmh" />
+        <field name="description">Medical Laboratory Scientist, Occupational
+Therapist, Physical Therapist, Psychiatric Services Liaison, Speech
+Language Pathologist, Social Worker MSW, Social Worker LCSW, Lead Speech
+Therapist, Lead Physical Therapist, Outpatient Behavioral Health RN
+(Article 2.4).</field>
+    </record>
+
+    <!-- Article 30 - Grievance and Arbitration. 30.1: "Days shall mean
+         calendar days." -->
+    <record id="track_contract_interpretation" model="union.grievance.track">
+        <field name="name">Contract interpretation</field>
+        <field name="sequence">10</field>
+        <field name="contract_id" ref="contract_srmh" />
+        <field name="article">30.3</field>
+        <field name="filed_by">union</field>
+        <field name="notes">30.2: if the union misses a deadline, the grievance is dismissed with prejudice; if the Hospital misses its response, the grievance moves to the next step (use Next Step).</field>
+    </record>
+    <record id="step_ci_informal" model="union.grievance.step">
+        <field name="track_id" ref="track_contract_interpretation" />
+        <field name="sequence">10</field>
+        <field name="name">Step 1 - Informal Review</field>
+        <field name="deadline_days">0</field>
+        <field name="description">No fixed deadline in the contract.</field>
+    </record>
+    <record id="step_ci_hr_manager" model="union.grievance.step">
+        <field name="track_id" ref="track_contract_interpretation" />
+        <field name="sequence">20</field>
+        <field name="name">Step 2 - HR Manager</field>
+        <field name="deadline_days">21</field>
+        <field name="description">Written grievance to the HR Manager.</field>
+    </record>
+    <record id="step_ci_area_director" model="union.grievance.step">
+        <field name="track_id" ref="track_contract_interpretation" />
+        <field name="sequence">30</field>
+        <field name="name">Step 3 - Area Director</field>
+        <field name="deadline_days">20</field>
+        <field name="description">Within 20 days of the Step 2 response.</field>
+    </record>
+    <record id="step_ci_arbitration" model="union.grievance.step">
+        <field name="track_id" ref="track_contract_interpretation" />
+        <field name="sequence">40</field>
+        <field name="name">Arbitration</field>
+        <field name="deadline_days">30</field>
+        <field name="description">Within 30 days of the Step 3 response.</field>
+    </record>
+
+    <record id="track_discipline_discharge" model="union.grievance.track">
+        <field name="name">Discipline and discharge</field>
+        <field name="sequence">20</field>
+        <field name="contract_id" ref="contract_srmh" />
+        <field name="article">30.4</field>
+        <field name="filed_by">union</field>
+        <field name="notes">No Step 3 in this procedure. Missed deadlines as in 30.2.</field>
+    </record>
+    <record id="step_dd_hr_manager" model="union.grievance.step">
+        <field name="track_id" ref="track_discipline_discharge" />
+        <field name="sequence">10</field>
+        <field name="name">Step 1 - HR Manager</field>
+        <field name="deadline_days">7</field>
+        <field name="description">Within 7 days of the discipline.</field>
+    </record>
+    <record id="step_dd_area_director" model="union.grievance.step">
+        <field name="track_id" ref="track_discipline_discharge" />
+        <field name="sequence">20</field>
+        <field name="name">Step 2 - Area Director</field>
+        <field name="deadline_days">7</field>
+        <field name="description">Within 7 days of the Step 1 response.</field>
+    </record>
+    <record id="step_dd_arbitration" model="union.grievance.step">
+        <field name="track_id" ref="track_discipline_discharge" />
+        <field name="sequence">30</field>
+        <field name="name">Arbitration</field>
+        <field name="deadline_days">30</field>
+        <field name="description">Within 30 days of the Step 2 response.</field>
+    </record>
+
+    <record id="track_hospital_grievance" model="union.grievance.track">
+        <field name="name">Hospital grievance</field>
+        <field name="sequence">30</field>
+        <field name="contract_id" ref="contract_srmh" />
+        <field name="article">30.5</field>
+        <field name="filed_by">employer</field>
+        <field name="notes">Filed by the Hospital against the Union, starting at the Area Director level.</field>
+    </record>
+    <record id="step_hg_area_director" model="union.grievance.step">
+        <field name="track_id" ref="track_hospital_grievance" />
+        <field name="sequence">10</field>
+        <field name="name">Area Director</field>
+        <field name="deadline_days">0</field>
+        <field name="description">See Article 30.5 for timing.</field>
+    </record>
+
+    <record id="union_base.product_template_union_dues" model="product.template">
+        <field name="name">NUHW Membership (payroll check-off, not invoiced)</field>
+    </record>
+
+</odoo>

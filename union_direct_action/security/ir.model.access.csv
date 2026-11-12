@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_union_direct_action_steward,union.direct_action steward,model_union_direct_action,union_base.group_union_steward,1,1,1,1

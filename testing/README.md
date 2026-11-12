@@ -42,14 +42,14 @@ actively testing.
 `addons_path` automatically includes every folder at the root of this
 repo, so a new module just needs to exist there - nothing to edit.
 
-First run creates the `nuhw_test` database with no modules installed yet.
+First run creates the `union_test` database with no modules installed yet.
 Install what you want to test:
 
 ```
 source .venv/bin/activate
 python3 ~/dev/odoo-19/odoo-bin --addons-path="$HOME/dev/odoo-19/addons,$HOME/dev/odoo-19/odoo/addons,$(cd .. && pwd)" \
-    --db_host="$(pwd)/.sockets" --db_port=5433 -d nuhw_test \
-    -i base,account,nuhw_base,nuhw_weingarten,nuhw_grievance,nuhw_direct_action,nuhw_hardship_fund \
+    --db_host="$(pwd)/.sockets" --db_port=5433 -d union_test \
+    -i base,account,union_base,union_weingarten,union_grievance,union_direct_action,union_hardship_fund \
     --stop-after-init
 ```
 
@@ -75,5 +75,5 @@ methods, checking results) without needing the web UI:
 ```
 source .venv/bin/activate
 python3 ~/dev/odoo-19/odoo-bin shell --addons-path="..." --db_host="$(pwd)/.sockets" --db_port=5433 \
-    -d nuhw_test --shell-interface=python < your_script.py
+    -d union_test --shell-interface=python < your_script.py
 ```

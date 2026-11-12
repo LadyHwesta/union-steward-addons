@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+    <!-- A single, non-invoiced membership product so action_mark_dues_current
+         has something to point membership.membership_line.membership_id at.
+         Dues usually come by payroll check-off, never an Odoo invoice, so
+         this product is never actually sold. A contract pack may rename it
+         (e.g. "NUHW Membership"). -->
+    <record id="product_template_union_dues" model="product.template">
+        <field name="name">Union Membership (payroll check-off, not invoiced)</field>
+        <field name="type">service</field>
+        <field name="membership" eval="True" />
+        <field name="membership_date_from" eval="DateTime.today()" />
+        <field name="membership_date_to" eval="DateTime.today() + relativedelta(years=1)" />
+        <field name="sale_ok" eval="False" />
+        <field name="purchase_ok" eval="False" />
+        <field name="list_price">0.0</field>
+    </record>
+</odoo>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <menuitem id="menu_union_grievances"
+              name="Grievances"
+              parent="union_base.menu_union_root"
+              action="union_grievance_action"
+              sequence="4"
+              groups="union_base.group_union_steward" />
+    <menuitem id="menu_union_grievance_tracks"
+              name="Grievance Procedures"
+              parent="union_base.menu_union_configuration"
+              action="union_grievance_track_action"
+              sequence="5" />
+</odoo>

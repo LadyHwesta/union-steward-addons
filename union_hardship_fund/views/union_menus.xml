@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <menuitem id="menu_union_hardship_requests"
+              name="Hardship Fund"
+              parent="union_base.menu_union_root"
+              action="union_hardship_request_action"
+              sequence="6"
+              groups="union_base.group_union_steward" />
+</odoo>
